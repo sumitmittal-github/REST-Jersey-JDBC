@@ -1,9 +1,9 @@
-package com.sumit.jerseydemo.service;
+package com.sumit.rest.service;
 
 import java.util.List;
 
-import com.sumit.jerseydemo.model.Product;
-import com.sumit.jerseydemo.repository.ProductRepository;
+import com.sumit.rest.model.Product;
+import com.sumit.rest.repository.ProductRepository;
 
 public class ProductService {
 	

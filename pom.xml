@@ -3,14 +3,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sumit</groupId>
-    <artifactId>jerseydemo</artifactId>
+    <groupId>com.sumit.rest</groupId>
+    <artifactId>jersey-jdbc</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jerseydemo</name>
+    <name>jersey-jdbc</name>
 
     <build>
-        <finalName>jerseydemo</finalName>
+        <finalName>jersey-jdbc</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

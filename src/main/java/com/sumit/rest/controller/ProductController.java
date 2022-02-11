@@ -1,9 +1,9 @@
-package com.sumit.jerseydemo.restcontroller;
+package com.sumit.rest.controller;
 
 import java.util.List;
 
-import com.sumit.jerseydemo.model.Product;
-import com.sumit.jerseydemo.service.ProductService;
+import com.sumit.rest.model.Product;
+import com.sumit.rest.service.ProductService;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;

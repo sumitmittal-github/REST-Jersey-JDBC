@@ -1,4 +1,4 @@
-package com.sumit.jerseydemo.model;
+package com.sumit.rest.model;
 
 import java.util.Date;
 import java.util.Objects;

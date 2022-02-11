@@ -1,4 +1,4 @@
-package com.sumit.jerseydemo.repository;
+package com.sumit.rest.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sumit.jerseydemo.model.Product;
+import com.sumit.rest.model.Product;
 
 public class ProductRepository {
 	
