@@ -8,6 +8,7 @@ import com.sumit.jerseydemo.service.ProductService;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -23,18 +24,27 @@ public class ProductController {
 	@GET
 	@Path("/list")
     public List<Product> getProductList() {
+		System.out.println("getProductList ...");
 		return productService.getProductList();
     }
 
 	@GET
 	@Path("/{id}")
-    public Product getProductById(@PathParam("id") long id) {
+    public Product getProductById(@PathParam("id") int id) {
+		System.out.println("getProductById ... id = "+id);
 		return productService.getProductById(id);
     }
 	
 	@POST
-    public void createProduct(Product product) {
-		productService.createProduct(product);
+    public Product createProduct(Product product) {
+		System.out.println("createProduct ... product = "+product);
+		return productService.createProduct(product);
+    }
+
+	@PUT
+    public void updateProduct(Product product) {
+		System.out.println("updateProduct ... product = "+product);
+		productService.updateProduct(product);
     }
 
 }

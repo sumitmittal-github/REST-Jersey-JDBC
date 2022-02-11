@@ -13,12 +13,15 @@ public class ProductService {
 		return productRepository.getProductList();
     }
 
-	public Product getProductById(long id) {
+	public Product getProductById(int id) {
 		return productRepository.getProductById(id);
     }
 
-	public void createProduct(Product product) {
-		productRepository.createProduct(product);
+	public Product createProduct(Product product) {
+		return productRepository.createProduct(product);
 	}	
-	
+
+	public Product updateProduct(Product product) {
+		return productRepository.updateProduct(product);
+	}
 }

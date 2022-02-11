@@ -38,7 +38,7 @@ public class ProductRepository {
 		return list;
     }
 	
-	public Product getProductById(long id) {
+	public Product getProductById(int id) {
 		Product p = null;
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery("select * from product where id="+id);
@@ -52,7 +52,7 @@ public class ProductRepository {
 		return p;
     }
 
-	public void createProduct(Product product) {
+	public Product createProduct(Product product) {
 		PreparedStatement stmt = null;
 		try {
 			stmt = conn.prepareStatement("insert into product (name, image_url, price, quantity) values(?,?,?,?)");
@@ -70,6 +70,28 @@ public class ProductRepository {
 				e.printStackTrace();
 			}
 		}
+		return product;
 	}
 
+	public Product updateProduct(Product product) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement("update product set name=?, image_url=?, price=?, quantity=? where id=?");
+			stmt.setString(1, product.getName());
+			stmt.setString(2, product.getImageUrl());
+			stmt.setDouble(3, product.getPrice());
+			stmt.setInt(4, product.getQuantity());
+			stmt.setInt(5, product.getId());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return product;
+    }
 }
