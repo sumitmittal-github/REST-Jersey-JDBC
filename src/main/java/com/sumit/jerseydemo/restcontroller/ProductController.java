@@ -6,6 +6,7 @@ import com.sumit.jerseydemo.model.Product;
 import com.sumit.jerseydemo.service.ProductService;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
@@ -16,7 +17,7 @@ import jakarta.ws.rs.core.MediaType;
 
 @Path("/product")
 @Consumes(MediaType.APPLICATION_JSON)
-@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
 public class ProductController {
 	
 	ProductService productService = new ProductService();
@@ -45,6 +46,13 @@ public class ProductController {
     public Product updateProduct(Product product) {
 		System.out.println("updateProduct ... product = "+product);
 		return productService.updateProduct(product);
+    }
+
+	@DELETE
+	@Path("/{id}")
+    public String deleteProduct(@PathParam("id") int id) {
+		System.out.println("deleteProduct ... id = "+id);
+		return productService.deleteProduct(id);
     }
 
 }

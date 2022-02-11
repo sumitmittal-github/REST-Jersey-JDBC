@@ -32,4 +32,13 @@ public class ProductService {
 		else
 			return null;
 	}
+	
+	public String deleteProduct(int id) {
+		Product productDb = productRepository.getProductById(id);
+		if(productDb != null) {
+			productRepository.deleteProduct(id);
+			return "Deleted successfully !!!";
+		} else
+			return "Invalid Id";
+	}
 }

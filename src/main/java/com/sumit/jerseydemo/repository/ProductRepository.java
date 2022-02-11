@@ -94,4 +94,21 @@ public class ProductRepository {
 		}
 		return product;
     }
+	
+	public void deleteProduct(int id) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement("delete from product where id=?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+    }
 }
