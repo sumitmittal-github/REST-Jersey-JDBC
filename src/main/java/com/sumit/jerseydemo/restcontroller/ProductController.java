@@ -42,9 +42,9 @@ public class ProductController {
     }
 
 	@PUT
-    public void updateProduct(Product product) {
+    public Product updateProduct(Product product) {
 		System.out.println("updateProduct ... product = "+product);
-		productService.updateProduct(product);
+		return productService.updateProduct(product);
     }
 
 }

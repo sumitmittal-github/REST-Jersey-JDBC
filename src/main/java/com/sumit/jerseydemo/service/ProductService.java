@@ -14,7 +14,11 @@ public class ProductService {
     }
 
 	public Product getProductById(int id) {
-		return productRepository.getProductById(id);
+		Product productDb = productRepository.getProductById(id);
+		if(productDb != null)
+			return productRepository.updateProduct(productDb);
+		else
+			return null;
     }
 
 	public Product createProduct(Product product) {
@@ -22,6 +26,10 @@ public class ProductService {
 	}	
 
 	public Product updateProduct(Product product) {
-		return productRepository.updateProduct(product);
+		Product productDb = productRepository.getProductById(product.getId());
+		if(productDb != null)
+			return productRepository.updateProduct(product);
+		else
+			return null;
 	}
 }
